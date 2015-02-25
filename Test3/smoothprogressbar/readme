@@ -1,0 +1,18 @@
+by samy add 2015-02-06
+
+SmoothProgressBar (min API 7): 
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    package="fr.castorflex.android.circularprogressbar">
+
+    <application/>
+
+</manifest>
+CircularProgressBar (min API 14): 
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    package="fr.castorflex.android.smoothprogressbar">
+
+    <application/>
+
+</manifest>

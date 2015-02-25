@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <!-- 支付宝部分 -->
+      <style name="AlertDialog" parent="android:Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@drawable/alipay_popup_bg</item>
+    </style>
+  <style name="mystyle" parent="android:Animation">
+        <item name="@android:windowEnterAnimation">@anim/base_dialog_enter</item>  //进入时的动画
+        <item name="@android:windowExitAnimation">@anim/base_dialog_exit</item>    //退出时的动画
+    </style>
+</resources>

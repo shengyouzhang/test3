@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="pulltorefresh&amp;pinnedheader"/>
+	<classpathentry kind="src" path="alipay"/>
+	<classpathentry kind="src" path="sharesdk"/>
+	<classpathentry kind="src" path="universalimageloader"/>
+	<classpathentry kind="src" path="pagersidingtabstrip"/>
+	<classpathentry kind="src" path="photoview"/>
+	<classpathentry kind="src" path="smoothprogressbar"/>
+	<classpathentry kind="src" path="actionbarpulltorefresh"/>
+	<classpathentry kind="src" path="changelog"/>
+	<classpathentry kind="src" path="datetimepicker"/>
+	<classpathentry kind="src" path="circleprogress"/>
+	<classpathentry kind="src" path="numberprogressbar"/>
+	<classpathentry kind="src" path="materialdesign"/>
+	<classpathentry kind="src" path="niftydialogeffects"/>
+	<classpathentry kind="src" path="eventbus"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>

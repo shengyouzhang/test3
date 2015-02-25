@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/base_common_center_small_titlebar" />
+
+    <RelativeLayout
+        android:id="@+id/webView_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/white" >
+
+        <com.zsy.frame.lib.extend.views.CustomWebView
+            android:id="@+id/webView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+
+        <ProgressBar
+            android:id="@+id/pb"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="3dp"
+            android:indeterminateOnly="false"
+            android:max="100"
+            android:progress="10"
+            android:progressDrawable="@drawable/base_progress_bar_states" />
+
+        <!-- <include layout="@layout/loading" /> -->
+    </RelativeLayout>
+
+    <include layout="@layout/base_web_src_navibar" />
+
+</LinearLayout>

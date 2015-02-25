@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_webNavi_root"
+    android:layout_width="fill_parent"
+    android:layout_height="46dp"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:id="@+id/bottom_menu"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/button_back"
+            android:layout_width="65dp"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:src="@drawable/base_web_navibar_back" />
+
+        <ImageButton
+            android:id="@+id/button_forword"
+            android:layout_width="65dp"
+            android:layout_height="fill_parent"
+            android:layout_toRightOf="@id/button_back"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:src="@drawable/base_web_navibar_forword" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="right" >
+
+            <ImageButton
+                android:id="@+id/button_reload"
+                android:layout_width="65dp"
+                android:layout_height="fill_parent"
+                android:background="@android:color/transparent"
+                android:src="@drawable/base_web_navibar_refresh" />
+
+            <ImageButton
+                android:id="@+id/button_close"
+                android:layout_width="65dp"
+                android:layout_height="fill_parent"
+                android:background="@android:color/transparent"
+                android:src="@drawable/base_web_navibar_close"
+                android:visibility="gone" />
+        </LinearLayout>
+    </RelativeLayout>
+ <ProgressBar
+        android:id="@+id/web_src_loadProgress"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:max="100"
+        android:progress="10"
+        android:progressDrawable="@drawable/base_web_progress_horizontal" />
+</LinearLayout>

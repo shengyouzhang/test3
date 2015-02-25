@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="color_common_bg">#F0F0F0</color>
+    <!-- 自定义Loding_Dialog -->
+    <color name="bocop_dialog_bg">#77000000</color>
+    <color name="white">#ffffff</color>
+
+</resources>

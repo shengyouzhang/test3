@@ -1,0 +1,4 @@
+by samy add 2015-02-06
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.github.lzyzsd.circleprogress">
+</manifest>
