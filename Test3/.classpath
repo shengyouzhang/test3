@@ -13,8 +13,8 @@
 	<classpathentry kind="src" path="circleprogress"/>
 	<classpathentry kind="src" path="numberprogressbar"/>
 	<classpathentry kind="src" path="materialdesign"/>
-	<classpathentry kind="src" path="niftydialogeffects"/>
 	<classpathentry kind="src" path="eventbus"/>
+	<classpathentry kind="src" path="nifty&amp;jazzy"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
