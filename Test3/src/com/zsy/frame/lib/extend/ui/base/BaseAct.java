@@ -1,5 +1,12 @@
 package com.zsy.frame.lib.extend.ui.base;
 
+import java.io.UnsupportedEncodingException;
+import java.util.HashSet;
+import java.util.Set;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,9 +17,15 @@ import com.testin.agent.TestinAgent;
 import com.umeng.analytics.MobclickAgent;
 import com.zsy.frame.lib.extend.views.LoadingDialog;
 import com.zsy.frame.lib.extend.views.ToastMsg;
+import com.zsy.frame.lib.net.http.volley.Request;
+import com.zsy.frame.lib.net.http.volley.Response.ErrorListener;
+import com.zsy.frame.lib.net.http.volley.VolleyError;
+import com.zsy.frame.lib.net.http.volley.app.VolleyRequestManager;
+import com.zsy.frame.lib.net.http.volley.app.samy.ServerFlagError;
+import com.zsy.frame.lib.net.http.volley.app.samy.ServerJsonUnParseError;
 import com.zsy.frame.lib.ui.activity.SYBaseAct;
 
-public abstract class BaseAct extends SYBaseAct {
+public abstract class BaseAct extends SYBaseAct implements ErrorListener {
 	public static final String LEFT_TITLE = "leftTitle";// 所有左侧显示字符的传递key
 	/** 分页加载数据，每页数据量 */
 	public static final int PAGE_SIZE = 10;
@@ -47,6 +60,78 @@ public abstract class BaseAct extends SYBaseAct {
 		super.onPause();
 		MobclickAgent.onPause(this);
 	}
+
+	private Set<Object> tags = new HashSet<Object>();
+
+	/**
+	 * 添加网络请求
+	 * 
+	 * @param request
+	 */
+	protected void executeRequest(Request request) {
+		VolleyRequestManager.addRequest(request, this);
+		tags.add(this);
+	}
+
+	/**
+	 * 添加网络请求
+	 * 
+	 * @param request
+	 */
+	protected void executeRequest(Request request, Object tag) {
+		VolleyRequestManager.addRequest(request, tag);
+		tags.add(tag);
+	}
+
+	/**
+	 * 取消网络请求
+	 * 
+	 * @param tag
+	 */
+	protected void cancelRequest(Object tag) {
+		VolleyRequestManager.cancelAll(tag);
+	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		for (Object tag : tags) {
+			VolleyRequestManager.cancelAll(tag);
+		}
+	}
+	
+	// 默认网络请求异常回调
+	@Override
+	public void onErrorResponse(VolleyError error) {
+		dismissLoadingDialog();
+		if (CURRENT_PAGE > 1) {// 加载异常回退到当前页
+			CURRENT_PAGE--;
+		}
+		String msg = "网络异常";
+		if (error instanceof ServerFlagError) {
+			msg = ((ServerFlagError) error).result.msg;
+		} else if (error instanceof ServerJsonUnParseError) {
+			try {
+				String res = ((ServerJsonUnParseError) error).result;
+				JSONObject jsonObject = new JSONObject(res);
+				msg = jsonObject.getString("msg");
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		} else {
+			try {
+				if (error.networkResponse != null
+						&& error.networkResponse.data != null)
+					msg = new String(error.networkResponse.data, "utf-8");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+		}
+		showToastMsg(msg);
+	}
+	
+	
+	
 
 	public void showLoadingDialog(String parameter) {
 		if (null == loadingDialog) {
