@@ -26,6 +26,9 @@ import com.zsy.frame.lib.net.http.volley.app.samy.ServerJsonUnParseError;
 import com.zsy.frame.lib.ui.activity.SYBaseAct;
 
 public abstract class BaseAct extends SYBaseAct implements ErrorListener {
+	/**自己主动控制网络请求的*/
+	private Set<Object> tags = new HashSet<Object>();
+	
 	public static final String LEFT_TITLE = "leftTitle";// 所有左侧显示字符的传递key
 	/** 分页加载数据，每页数据量 */
 	public static final int PAGE_SIZE = 10;
@@ -60,8 +63,6 @@ public abstract class BaseAct extends SYBaseAct implements ErrorListener {
 		super.onPause();
 		MobclickAgent.onPause(this);
 	}
-
-	private Set<Object> tags = new HashSet<Object>();
 
 	/**
 	 * 添加网络请求
