@@ -51,8 +51,9 @@ public class BaseApp extends SYApp {
 	 * @param url
 	 * @param imageListener
 	 */
-	public static void loadImg(ImageView view, String url) {
-		ImageListener imageListener = VolleyRequestManager.getImageLoader().getImageListener(view, R.drawable.ic_launcher, R.drawable.ic_launcher);
-		loadImg(view, url, imageListener);
+	public static void loadImg(ImageView view, String imageUri,int loadingImg,int failImg) {
+	 ImageListener imageListener = VolleyRequestManager.getImageLoader().getImageListener(view, loadingImg, failImg);
+//		ImageListener imageListener = VolleyRequestManager.getImageLoader().getImageListener(view, R.drawable.ic_launcher, R.drawable.ic_launcher);
+		loadImg(view, imageUri, imageListener);
 	}
 }
